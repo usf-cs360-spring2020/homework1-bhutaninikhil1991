@@ -194,18 +194,18 @@ You can even put code into these pre blocks.
 
             <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
             <script type="text/javascript">
-              $('.button').click(function() {
+              $('.button').click(function(e) {
                 var idToSRC = this.id + '.png';
                 $('#picture').attr('src', idToSRC);
                 $('#picture').attr('alt', this.id);
-                var srclink ="#";
-                if(this.id == "barchart"){
-                	srclink = "https://vizhub.com/bhutaninikhil1991/a2b2b2d7ad1848f4aa4d215890934544";
+                var srclink = "#";
+                if (this.id == "barchart") {
+                  srclink = "https://vizhub.com/bhutaninikhil1991/a2b2b2d7ad1848f4aa4d215890934544";
+                } else if (this.id == "heatmap") {
+                  srclink = "https://vizhub.com/bhutaninikhil1991/fcaacbefafb442a69b9df76b5ded31a4";
                 }
-                else if(this.id == "heatmap"){
-                	srclink = "https://vizhub.com/bhutaninikhil1991/fcaacbefafb442a69b9df76b5ded31a4";
-                }
-                $('#srclink').attr('href', srclink)
+                $('#srclink').attr('href', srclink);
+                e.preventDefault();
               });
 
             </script>
