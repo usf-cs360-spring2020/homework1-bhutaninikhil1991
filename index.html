@@ -63,15 +63,15 @@
             </a>
 
             <div class="navbar-dropdown">
-              <a class="navbar-item">
+              <a class="navbar-item" href="#barchart" id="nav_barchart">
                 <span class="icon"><i class="fas fa-chart-bar"></i></span>
                 <span>Bar Chart</span>
               </a>
-              <a class="navbar-item">
+              <a class="navbar-item" href="#heatmap" id="nav_heatmap">
                 <span class="icon"> <img alt="Heat Map icon" src="https://img.icons8.com/plasticine/2x/heat-map.png" style="height:24px;width:24px;" /></span>
                 <span>HeatMap</span>
               </a>
-              <a class="navbar-item">
+              <a class="navbar-item" href="#piechart" id="nav_piechart">
                 <span class="icon"><i class="fas fa-chart-pie"></i></span>
                 <span>Pie Chart</span>
               </a>
@@ -218,6 +218,19 @@
 
             <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
             <script type="text/javascript">
+              $('#nav_barchart').click(function() {
+                $('#barchart').trigger('click');
+              });
+
+              $('#nav_piechart').click(function() {
+                $('#piechart').trigger('click');
+              });
+
+              $('#nav_heatmap').click(function() {
+                $('#heatmap').trigger('click');
+              });
+              
+              
               $('.button').click(function(e) {
                 var idToSRC = this.id + '.png';
                 $('#picture').attr('src', idToSRC);
