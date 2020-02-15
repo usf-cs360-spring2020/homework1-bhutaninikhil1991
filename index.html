@@ -107,12 +107,12 @@
         </h1>
 
         <p>
-          This example visualize the Air Traffic Passenger Statistics dataset from DataSF(https://datasf.org/opendata/).
+          This example visualizes the Air Traffic Passenger Statistics dataset from DataSF(<a href="https://datasf.org/opendata/">https://datasf.org/opendata/</a>).
         </p>
         <h2 id="data">Data</h2>
         <p>          
           San Francisco International Airport Report on Monthly Passenger Traffic Statistics by Airline. Airport data is seasonal in nature, therefore any comparative analyses should be done on a period-over-period basis (i.e. January 2010 vs. January 2009) as opposed to period-to-period (i.e. January 2010 vs. February 2010). 
-          It is also important to note that fact and attribute field relationships are not always 1-to-1. For example, Passenger Counts belonging to United Airlines will appear in multiple attribute fields and are additive, which provides flexibility for the user to derive categorical Passenger Counts as desired.
+          It is also important to note that fact and attribute field relationships are not always 1-to-1. For example, Passenger Counts belonging to United Airlines will appear in multiple attribute fields and are additive, which provides flexibility for the user to derive categorical passenger counts as desired.
         </p>
         <p>The original dataset includes over 21.k rows as of December 2019. The original dataset includes 12 columns. 
           Most of these columns are categorical text, such as the operating airline and geographic region. 
@@ -125,10 +125,10 @@
           <p>
             "This data is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: <a href="http://www.opendatacommons.org/licenses/pddl/1.0/">www.opendatacommons.org/licenses/pddl/1.0/</a>"
           </p>
-          <cite>Data acquired from https://datasf.org/opendata/ on February 11 2020. Aggregated data on this page is made freely available under Open Data Commons Public Domain Dedication and License(<a href="https://opendatacommons.org/licenses/pddl/1.0/">https://opendatacommons.org/licenses/pddl/1.0/</a>)</cite>
+          <cite>Data acquired from <a href="https://datasf.org/opendata/">https://datasf.org/opendata/</a> on February 11 2020. Aggregated data on this page is made freely available under Open Data Commons Public Domain Dedication and License(<a href="https://opendatacommons.org/licenses/pddl/1.0/">https://opendatacommons.org/licenses/pddl/1.0/</a>)</cite>
         </blockquote>
 
-        <p>The dataset has followinf columns:</p>
+        <p>The dataset has following columns:</p>
 
         <ol>
           <li><strong>Activity Period:</strong> The year and month at which passenger activity took place. The column is encoded as a number but may be wrangled to be interpreted as a date. This column consist of data from July 2005 to September 2019. 
@@ -247,12 +247,13 @@
          <div id="div_barchart">
               <h4>Interpretation</h4>
 
-              <p>The GEO Summary is color encoded i.e blue color corresponds to "Domestic" and orange color corresponds to "International". The passenger count is encoded by the length of the bar, so longer bars represent higher passenger count.</p>
+              <p>The GEO Summary is color encoded i.e blue color corresponds to "Domestic" and orange color corresponds to "International". 
+                The Y axis corresponds to passenger count in Millions whereas X axis corresponds to months in Year 2019(which is till Sep 2019 because data is available till Sep 2019). The passenger count is encoded by the length of the bar, so longer bars represent higher passenger count.</p>
 
               <h4>Data Wrangling</h4>
 
               <p>
-                Filtered the data by activity period as "greater than Dec 2018" and grouped the data by activity period(in Months), Geographical Summary(Domestic and International) and aggregating it by passenger count
+                Filtered the data by activity period as "greater than Dec 2018" and grouped the data by activity period(in Months), Geographical Summary(Domestic and International) and aggregating(sum) it by passenger count
                 <pre>
                   Filtering By:    Activity Period > Dec 2018
                   Grouping By:     1. Activity Periods(in Months)
@@ -273,12 +274,12 @@
          <div id="div_heatmap" style="display:none">
               <h4>Interpretation</h4>
 
-              <p>A heat map uses a matrix layout with colour and shading to show the relationship between two categories of values. The values are presented along each axis and the corresponding cell is then colour-coded to represent the relationship between the two categories. This heatmap shows the passenger count in different regions (y axis) for different years (x axis). The darker cells would indicate there were more number of passengers in that particular country for a certain year. The general hierarchy of color shades varies from the darkest (highest values) through the mid range shades and to the light shades (lowest values)</p>
+              <p>A heat map uses a matrix layout with colour and shading to show the relationship between two categories of values. The values are presented along each axis and the corresponding cell is then colour-coded to represent the relationship between the two categories. This heatmap shows the passenger count in different geographical regions (y axis) for different years (x axis). The darker cells would indicate there are more number of passengers in that particular region for a certain year. The general hierarchy of color shades varies from the darkest (highest values) through the mid range shades and to the light shades (lowest values).</p>
 
               <h4>Data Wrangling</h4>
 
               <p>
-                Grouped the data by activity period(in Years), Geographical region and aggregated it by passenger count
+                Grouped the data by activity period(in Years), Geographical region and aggregated(sum) it by passenger count
                 <pre>
                     Grouping By:     1. Activity Periods(in Years)
                                      2. Geographical Region(US, Asia, Australia/Oceania, Canada, Central America, Europe, Mexico, Middle East, South America)
@@ -298,12 +299,12 @@
             <div id="div_piechart" style = "display:none">
               <h4>Interpretation</h4>
 
-              <p>This visualization has multiple pie charts and each pie chart corresponds to a GEO Summary i.e. Domestic or International. When you interpret one pie chart, look for differences in the size of the slices. The size of a slice shows the proportion of observations that are in that group.</p>
+              <p>This visualization has multiple pie charts and each pie chart corresponds to a GEO Summary i.e. Domestic or International. Each month for Year 2019 is color coded. When you interpret one pie chart, look for differences in the size of the slices. The size of a slice shows the percentage of total passenger count corresponding to a particular month.</p>
 
               <h4>Data Wrangling</h4>
 
               <p>
-                Filtered the data by activity period as "greater than Dec 2018" and grouped the data by activity period(in Months), Geographical Summary(Domestic and International) and aggregating it by passenger count
+                Filtered the data by activity period as "greater than Dec 2018" and grouped the data by activity period(in Months), Geographical Summary(Domestic and International) and aggregating(Percent of Total) it by passenger count
                 <pre>
                   Filtering By:    Activity Period > Dec 2018
                   Grouping By:     1. Activity Periods(in Months)
