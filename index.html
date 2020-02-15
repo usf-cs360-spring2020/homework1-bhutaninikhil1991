@@ -225,8 +225,18 @@
                 var srclink = "#";
                 if (this.id == "barchart") {
                   srclink = "https://vizhub.com/bhutaninikhil1991/a2b2b2d7ad1848f4aa4d215890934544";
+                  $('#div_barchart').css('display','block');
+                  $('#div_heatmap').css('display','none');
+                  $('#div_piechart').css('display','none');
                 } else if (this.id == "heatmap") {
                   srclink = "https://vizhub.com/bhutaninikhil1991/fcaacbefafb442a69b9df76b5ded31a4";
+                  $('#div_heatmap').css('display','block');
+                  $('#div_barchart').css('display','none');
+                  $('#div_piechart').css('display','none');
+                } else if(this.id == "piechart"){
+                  $('#div_piechart').css('display','block');
+                  $('#div_barchart').css('display','none');
+                  $('#div_heatmap').css('display','none');
                 }
                 $('#srclink').attr('href', srclink);
                 e.preventDefault();
@@ -234,25 +244,82 @@
 
             </script>
 
-        <h4>Instructions</h4>
+         <div id="div_barchart">
+              <h4>Interpretation</h4>
 
-        <p>You will likely need to include instructions on how to interpet and use the visualization. In the case above, if you click the three dots <i class="fas fa-ellipsis-h has-text-grey-light	"></i> above it will open a menu where you can either save the visualization to a SVG or PNG, or alternatively open it up in the online Vega Editor.</p>
+              <p>The GEO Summary is color encoded i.e blue color corresponds to "Domestic" and orange color corresponds to "International". The passenger count is encoded by the length of the bar, so longer bars represent higher passenger count.</p>
 
-        <h4>Discussion</h4>
+              <h4>Data Wrangling</h4>
 
-        <p>You may also need other sections, like a discussion section, per-visualization section on data wrangling, and others. Because of the extra content and code visualizations take, it might be worthwhile to break up your pages into one home page and then one page per visualization.</p>
+              <p>
+                Filtered the data by activity period as "greater than Dec 2018" and grouped the data by activity period(in Months), Geographical Summary(Domestic and International) and aggregating it by passenger count
+                <pre>
+                  Filtering By:    Activity Period > Dec 2018
+                  Grouping By:     1. Activity Periods(in Months)
+                                   2. Geographical Summary(Domestic and International)
+                  Aggregating By:  Passenger Count(sum)     
+                </pre>
+              </p>
 
-        <span class="heading">Acknowledgements</span>
+              <h4>Conclusion</h4>
+              <p>The below observations can be drawn from the visualization:<ul>
+                  <li>Passenger count for Year 2019 is highest in month of August as compared to other months for "Domestic".</li>
+                  <li>Passenger count for Year 2019 is highest in month of July as compared to other months for "International".</li>
+                </ul>
+              </p>
 
-        <p>
-          <a href="#">Link to insiration</a><br/>
-          <a href="#">Link to StackOverflow snippet</a>
-        </p>
+           </div>
+    
+         <div id="div_heatmap" style="display:none">
+              <h4>Interpretation</h4>
 
-        <p class="is-6">
-          <em>Thanks to Person Name for their suggestion to do something with the visualization.</em>
-        </p>
+              <p>A heat map uses a matrix layout with colour and shading to show the relationship between two categories of values. The values are presented along each axis and the corresponding cell is then colour-coded to represent the relationship between the two categories. This heatmap shows the passenger count in different regions (y axis) for different years (x axis). The darker cells would indicate there were more number of passengers in that particular country for a certain year. The general hierarchy of color shades varies from the darkest (highest values) through the mid range shades and to the light shades (lowest values)</p>
 
+              <h4>Data Wrangling</h4>
+
+              <p>
+                Grouped the data by activity period(in Years), Geographical region and aggregated it by passenger count
+                <pre>
+                    Grouping By:     1. Activity Periods(in Years)
+                                     2. Geographical Region(US, Asia, Australia/Oceania, Canada, Central America, Europe, Mexico, Middle East, South America)
+                    Aggregating By:  Passenger Count(sum)     
+                </pre>
+              </p>
+
+              <h4>Conclusion</h4>
+              <p>The below observations can be drawn from the visualization:<ul>
+                  <li>Particularly for US, there is a signifcant increase in passenger count since 2005 till 2018 and there is slight decrease in passenger count in 2019.</li>
+                  <li>However for rest of the regions, there is an insignificant increase in passenger count since 2005 till 2019</li>
+                </ul>
+              </p>
+
+            </div>
+  
+            <div id="div_piechart" style = "display:none">
+              <h4>Interpretation</h4>
+
+              <p>This visualization has multiple pie charts and each pie chart corresponds to a GEO Summary i.e. Domestic or International. When you interpret one pie chart, look for differences in the size of the slices. The size of a slice shows the proportion of observations that are in that group.</p>
+
+              <h4>Data Wrangling</h4>
+
+              <p>
+                Filtered the data by activity period as "greater than Dec 2018" and grouped the data by activity period(in Months), Geographical Summary(Domestic and International) and aggregating it by passenger count
+                <pre>
+                  Filtering By:    Activity Period > Dec 2018
+                  Grouping By:     1. Activity Periods(in Months)
+                                   2. Geographical Summary(Domestic and International)
+                  Aggregating By:  Passenger Count(Percent of Total)     
+                </pre>
+              </p>
+
+              <h4>Conclusion</h4>
+              <p>The below observations can be drawn from the visualization:<ul>
+                  <li>Passenger count for Year 2019 is highest in month of August as compared to other months for "Domestic".</li>
+                  <li>Passenger count for Year 2019 is highest in month of July as compared to other months for "International".</li>
+                </ul>
+              </p>
+
+           </div>
         <h2 id="grade">Grade</h2>
 
         <!-- TODO: Remove custom style if no longer needed -->
