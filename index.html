@@ -211,7 +211,7 @@
 
 
             <div id="vis">
-              <a href="https://vizhub.com/bhutaninikhil1991/a2b2b2d7ad1848f4aa4d215890934544" id="srclink">
+              <a href="https://vizhub.com/bhutaninikhil1991/a2b2b2d7ad1848f4aa4d215890934544" id="srclink" target="_blank">
                 <img src="barchart.png" alt="Bar Chart" id="picture" width="868" height="476" />
               </a>
               <p>Please click on image for D3 Visualizations or alternatively click on below link to access the same</p>
@@ -252,17 +252,16 @@
                   $('#div_barchart').css('display','block');
                   $('#div_heatmap').css('display','none');
                   $('#div_piechart').css('display','none');
-                  $("#srclink").attr('target','_blank');
                 } else if (this.id == "heatmap") {
                   srclink = "https://vizhub.com/bhutaninikhil1991/fcaacbefafb442a69b9df76b5ded31a4";
                   $('#div_heatmap').css('display','block');
                   $('#div_barchart').css('display','none');
                   $('#div_piechart').css('display','none');
-                  $("#srclink").attr('target','_blank');
                 } else if(this.id == "piechart"){
                   $('#div_piechart').css('display','block');
                   $('#div_barchart').css('display','none');
                   $('#div_heatmap').css('display','none');
+                  $('#srclink').removeAttr('target');
                 }
                 $('#srclink').attr('href', srclink);
                 e.preventDefault();
