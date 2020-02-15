@@ -246,22 +246,27 @@
                 var idToSRC = this.id + '.png';
                 $('#picture').attr('src', idToSRC);
                 $('#picture').attr('alt', this.id);
-                var srclink = "#";
+                var srclink = "#!";
                 if (this.id == "barchart") {
                   srclink = "https://vizhub.com/bhutaninikhil1991/a2b2b2d7ad1848f4aa4d215890934544";
                   $('#div_barchart').css('display','block');
                   $('#div_heatmap').css('display','none');
                   $('#div_piechart').css('display','none');
+                  if($('#srclink').attr('target') === undefined)
+                    $('#srclink').attr('target','blank');                
                 } else if (this.id == "heatmap") {
                   srclink = "https://vizhub.com/bhutaninikhil1991/fcaacbefafb442a69b9df76b5ded31a4";
                   $('#div_heatmap').css('display','block');
                   $('#div_barchart').css('display','none');
                   $('#div_piechart').css('display','none');
+                  if($('#srclink').attr('target') === undefined)
+                    $('#srclink').attr('target','blank');  
                 } else if(this.id == "piechart"){
                   $('#div_piechart').css('display','block');
                   $('#div_barchart').css('display','none');
                   $('#div_heatmap').css('display','none');
-                  $('#srclink').removeAttr('target');
+                  if($('#srclink').attr('target') !== undefined)
+                    $('#srclink').removeAttr('target');
                 }
                 $('#srclink').attr('href', srclink);
                 e.preventDefault();
