@@ -23,9 +23,7 @@
     <div class="hero-body">
       <div class="container">
         <!-- TODO: Change title -->
-        <h1 class="title">Website Title</h1>
-        <!-- TODO: Change subtitle -->
-        <h2 class="subtitle">Website Subtitle</h2>
+        <h1 class="title">HomeWork 1</h1>
       </div>
     </div>
   </section>
@@ -66,19 +64,12 @@
 
             <div class="navbar-dropdown">
               <a class="navbar-item">
-                <span class="icon"><i class="fas fa-chart-line"></i></span>
-                <span>Line Chart</span>
-              </a>
-              <a class="navbar-item">
-                <span class="icon"><i class="fas fa-chart-area"></i></span>
-                <span>Area Chart</span>
-              </a>
-
-              <hr class="navbar-divider">
-
-              <a class="navbar-item">
                 <span class="icon"><i class="fas fa-chart-bar"></i></span>
                 <span>Bar Chart</span>
+              </a>
+              <a class="navbar-item">
+                <span class="icon"> <img alt="Heat Map icon" src="https://img.icons8.com/plasticine/2x/heat-map.png" style="height:24px;width:24px;" /></span>
+                <span>HeatMap</span>
               </a>
               <a class="navbar-item">
                 <span class="icon"><i class="fas fa-chart-pie"></i></span>
@@ -112,38 +103,68 @@
       <div class="content">
         <h1 class="title">
           <!-- TODO: Change page title -->
-          Page Title
+          Air Traffic Passenger Statistics
         </h1>
-        <p class="subtitle">
-          <!-- TODO: Change page subtitle -->
-          Page Subtitle
+
+        <p>
+          This example visualize the Air Traffic Passenger Statistics dataset from DataSF(https://datasf.org/opendata/).
         </p>
-
-        <p>This would be an excellent place to describe what this page is for, what to find in different sections, describe any motivation or theme behind your visualizations, and so on.</p>
-
-        <p>You should not use this template unless you intend to customize it. Make it your own. Keep in mind this simple template is over 300 lines! You can see other examples of websites using Bulma at their showcase: <a href="https://bulma.io/expo/">bulma.io/expo/</a>.</p>
-
         <h2 id="data">Data</h2>
-
-        <p>Include some detailed information about the dataset here. You should <a href="#">add a link</a> to the original dataset. You might also want to quote the license:</p>
+        <p>          
+          San Francisco International Airport Report on Monthly Passenger Traffic Statistics by Airline. Airport data is seasonal in nature, therefore any comparative analyses should be done on a period-over-period basis (i.e. January 2010 vs. January 2009) as opposed to period-to-period (i.e. January 2010 vs. February 2010). 
+          It is also important to note that fact and attribute field relationships are not always 1-to-1. For example, Passenger Counts belonging to United Airlines will appear in multiple attribute fields and are additive, which provides flexibility for the user to derive categorical Passenger Counts as desired.
+        </p>
+        <p>The original dataset includes over 21.k rows as of December 2019. The original dataset includes 12 columns. 
+          Most of these columns are categorical text, such as the operating airline and geographic region. 
+          The activity period is encoded as a number but may be wrangled to be interpreted as a date. The only other number is passenger count.
+          The direct link to data set is: <a href="https://data.sfgov.org/Transportation/Air-Traffic-Passenger-Statistics/rkru-6vcg">https://data.sfgov.org/Transportation/Air-Traffic-Passenger-Statistics/rkru-6vcg</a>
+          . The full citation is :
+        </p>
 
         <blockquote>
           <p>
             "This data is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: <a href="http://www.opendatacommons.org/licenses/pddl/1.0/">www.opendatacommons.org/licenses/pddl/1.0/</a>"
           </p>
-          <cite>Put a citation here, possibly link to the dataset license information directly.</cite>
+          <cite>Data acquired from https://datasf.org/opendata/ on February 11 2020. Aggregated data on this page is made freely available under Open Data Commons Public Domain Dedication and License(<a href="https://opendatacommons.org/licenses/pddl/1.0/">https://opendatacommons.org/licenses/pddl/1.0/</a>)</cite>
         </blockquote>
 
-        <p>In addition to including a link to the source and license, you should describe the data. You might want a list of some sort to enumerate the different types of columns:</p>
+        <p>The dataset has followinf columns:</p>
 
         <ol>
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
+          <li><strong>Activity Period:</strong> The year and month at which passenger activity took place. The column is encoded as a number but may be wrangled to be interpreted as a date. This column consist of data from July 2005 to September 2019. 
+            The Activity Period is always displayed as six digits, with the four-digit year preceding a two-digit month. For example, 201001 is January 2010, 201002 is February 2010 and so on.</li>
 
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
+          <li><strong>Operating Airline:</strong> Airline name for the operator of aircraft with passenger activity. The operating airline is encoded as text.</li>
 
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
+          <li><strong>Operating Airline IATA Code:</strong> The International Air Transport Association (IATA) two-letter designation for the Operating Airline. The operating airline iata code is encoded as text.</li>
 
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
+          <li><strong>Published Airline:</strong> Airline name that issues the ticket and books revenue for passenger activity. The published airline is encoded as text. A Published Airline may be the Operating Airline or it may have one or more Operating Airlines associated with it. 
+            For example, United Airlines issues tickets and books revenue for Operating Airlines United Airlines and its regional affiliate Skywest Airlines. Therefore, Operating Airlines are a subset of Published Airlines.</li>
+          
+          <li><strong>Published Airline IATA Code:</strong>The International Air Transport Association (IATA) two-letter designation for the Published Airline. The published airline iata code is encoded as text.</li>
+          
+          <li><strong>GEO Summary:</strong> Designates whether the passenger activity in relation to SFO arrived from or departed to a location within the United States (“domestic”), or outside the United States (“international”) without stops. 
+            The geo summary is encoded as text. The possible values for this column are Domestic, International.</li>
+          
+          <li><strong>GEO Region:</strong> Provides a more detailed breakdown of the GEO Summary field to designate the region in the world where activity in relation to SFO arrived from or departed to without stops. The geo region is encoded as text. 
+            The possible values for this column are US, Africa, Asia, Australia/Oceania, Canada, Caribbean, Central America, Europe, Mexico, Middle East, South America.</li>
+          
+          <li><strong>Activity Type Code:</strong> A description of the physical action a passenger took in relation to a flight, which includes boarding a flight (“enplanements”), getting off a flight (“deplanements”) and transiting to another location (“intransit”). 
+            The activity type code is encoded as text. The list of possible values are Enplaned, Deplaned, Thru/Transit. 
+            The count of enplaned passengers is widely used in the aviation industry as a proxy for period-over-period comparative analyses of passenger trends. A passenger is categorized as Thru/Transit only if he or she connects through the airport to get to another location on the same aircraft and flight number. 
+            Otherwise the connecting passenger would be counted as one deplanement and one enplanement. 
+            It is SFO’s convention to count Thru/Transit passengers twice in total airport passenger counts, as if they had deplaned and then enplaned. Therefore, total airport passengers are calculated as Enplaned + Deplaned + Thru/Transit*2. </li>
+          
+          <li><strong>Price Category Code:</strong> A categorization of whether a Published Airline is a low-cost carrier or not a low-cost carrier. The price category code is encoded as text. The list of possible values are Low Fare, Other. 
+            Since there is no objective criterion that segregates low-cost carriers from non low-cost carriers, an airline is tagged as Low Fare based on general industry acceptance</li>
+          
+          <li><strong>Terminal:</strong> The airport terminal designations at SFO where passenger activity took place. The terminal is encoded as text. The list of possible values are Terminal 1, Terminal 2, Terminal 3, International Terminal.</li>
+          
+          <li><strong>Boarding Area:</strong> The airport boarding area designations at SFO where passenger activity took place The boarding area is encoded as text. The list of possible values are A, B, C, D, E, F, G. Boarding Areas are a subset of Terminals. Terminal 1 contains Boarding Areas B and C. Terminal 2 contains Boarding Area D. 
+            Terminal 3 contains Boarding Areas E and F. International Terminal contains Boarding Areas A and G.</li>
+          
+          <li><strong>Passenger Count:</strong> The number of monthly passengers associated with the above attribute fields. The passenger count is encoded as number. Passenger counts are additive for all attribute fields.</li>
+         
         </ol>
 
         <p>This will of course differ depending on the assignment and data.</p>
